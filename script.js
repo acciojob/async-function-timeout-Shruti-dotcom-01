@@ -1,19 +1,14 @@
 //your JS code here. If required.
-document.getElementById("btn").addEventListener("click",async () => {
-	let text = document.getElementById("text").value;
-	let delay = document.getElementById("delay").value;
+document.getElementById("btn").addEventListener("click", async () => {
+  let text = document.getElementById("text").value;
+  let delay = parseInt(document.getElementById("delay").value, 10);
 
-	if (text && delay){
-		let myPromise  = new promise((resolve) => {
-			setTimeout(() => {
-				resolve(text);
-			}, delay)
-		});
-
-		myPromise.then((data)=> {
-			document.getElementById("output").textContent = data;
-		})
-		
-		}
-	}
+  if (text && !isNaN(delay)) {
+    await delayMessage(text, delay);
+  }
 });
+
+async function delayMessage(message, delay) {
+  await new Promise((resolve) => setTimeout(resolve, delay));
+  document.getElementById("output").textContent = message;
+}
