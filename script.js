@@ -10,9 +10,10 @@ document.getElementById("btn").addEventListener("click",async () => {
 			}, delay)
 		});
 
-		let text2 = await myPromise;
-		if(text2){
-			document.getElementById("output").textContent = text2;
+		myPromise.then((data)=> {
+			document.getElementById("output").textContent = data;
+		})
+		
 		}
 	}
 });
