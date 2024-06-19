@@ -15,4 +15,4 @@ document.getElementById("btn").addEventListener("click",async () => {
 			document.getElementById("output").textContent = text2;
 		}
 	}
-})
+});
